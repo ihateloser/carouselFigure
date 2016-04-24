@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框</title>
+    <link href="css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="div1"></div>
+
+<script>
+window.onload=drag;
+    function drag(){
+        var box = document.getElementById('div1');
+        box.onmousedown = fndown;
+    }
+    function fndown(event){
+        event = event || window.event;
+        var box = document.getElementById('div1');
+        var disX = event.clientX - box.offsetLeft;//鼠标和盒子之间的距离
+        var disY = event.clientY - box.offsetTop;
+
+        //移动的时候
+        document.onmousemove = function(event){
+            event = event || window.event;
+            fnmove(event,disX,disY);
+        }
+        //释放鼠标的时候
+        document.onmouseup = function(event){
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+    }
+
+    function fnmove(event,posX,posY){
+        var box = document.getElementById('div1');
+        var l = event.clientX - posX;
+        var t = event.clientY - posY;
+        box.style.left = l+'px';
+        box.style.top = t+'px';
+    }
+
+
+
+</script>
+</body>
+</html>

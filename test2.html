@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link href="css2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="picbox" id="picbox">
+    <ul>
+        <li style="display: block"><img src="image/1.jpg"></li>
+        <li><img src="image/2.jpg"></li>
+        <li><img src="image/3.jpg"></li>
+        <li><img src="image/4.jpg"></li>
+        <li><img src="image/5.jpg"></li>
+        <li><img src="image/6.jpg"></li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        move();
+    }
+    var pics = document.getElementById('picbox').getElementsByTagName('li');
+//    for(var i = 0;i<pics.length;i++){
+//           给每个图片加上id,也就是索引
+//        pics[i].id = i;
+//    }
+
+    function move() {
+        var timer = null;
+        var index = 0;
+        timer = setInterval(function () {
+                //清除掉之前显示的图片
+            index++;
+            if(index>=pics.length){
+                index = 0;
+            }
+            for (var i = 0; i < pics.length; i++) {
+                pics[i].style.display = 'none';
+            }
+            pics[index].style.display = 'block';
+
+        }, 2000)
+    }
+
+</script>
+</body>
+</html>

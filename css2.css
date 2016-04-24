@@ -1,0 +1,12 @@
+.picbox{
+    width:640px;
+    height:270px;
+    overflow: hidden;
+}
+.picbox ul{
+    list-style:none;
+}
+.picbox ul li{
+    float: left;
+    display: none;
+}
